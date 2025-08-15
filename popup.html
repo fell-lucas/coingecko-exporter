@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoinGecko Data Exporter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>CoinGecko Data Exporter</h1>
+    <p class="subtitle">Free • Open Source • Unlimited Exports</p>
+    
+    <div style="margin-top: 32px;"></div>
+    
+    <div class="filename-container">
+      <label for="exportFileName">Export file name:</label>
+      <input type="text" id="exportFileName" placeholder="Default name will be used if empty">
+    </div>
+
+    <div class="export-options">
+      <h4>Export Options</h4>
+      
+      <label>
+        <input type="checkbox" id="showPreview" checked>
+        Show data preview before export
+      </label>
+      
+      <label>
+        Export format:
+        <select id="exportFormat">
+          <option value="csv">CSV</option>
+          <option value="json">JSON</option>
+        </select>
+      </label>
+      
+      <!-- Column Selection Options -->
+      <div id="columnOptions">
+        <h5>Select Columns to Export:</h5>
+        
+        <!-- Portfolio Columns -->
+        <div id="portfolioColumns" class="column-group">
+          <h6>Portfolio Data:</h6>
+          <div class="column-checkboxes">
+            <label><input type="checkbox" class="column-checkbox" data-column="coin" checked> Coin Name</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="symbol" checked> Symbol</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="price" checked> Price</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="change1h"> 1h Change</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="change24h"> 24h Change</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="change7d"> 7d Change</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="volume"> 24h Volume</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="marketCap"> Market Cap</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="holdingsValue" checked> Holdings Value</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="totalHoldings" checked> Total Holdings</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="pnlValue" checked> PNL Value</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="pnlPercentage" checked> PNL Percentage</label>
+          </div>
+        </div>
+        
+        <!-- Transaction Columns -->
+        <div id="transactionColumns" class="column-group" style="display: none;">
+          <h6>Transaction Data:</h6>
+          <div class="column-checkboxes">
+            <label><input type="checkbox" class="column-checkbox" data-column="type" checked> Type</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="price" checked> Price</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="quantity" checked> Quantity</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="dateTime" checked> Date & Time</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="fees"> Fees</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="cost" checked> Cost</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="proceeds"> Proceeds</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="pnl" checked> PNL</label>
+            <label><input type="checkbox" class="column-checkbox" data-column="notes"> Notes</label>
+          </div>
+        </div>
+        
+        <!-- Column Selection Controls -->
+        <div class="column-controls">
+          <div class="preferences-saved" id="preferencesSaved">✓ Saved</div>
+          <button type="button" id="selectAllColumns" class="btn-small">Select All</button>
+          <button type="button" id="deselectAllColumns" class="btn-small">Deselect All</button>
+          <button type="button" id="resetToDefault" class="btn-small">Reset to Default</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="statusMessage" class="status-message" style="display: none;"></div>
+
+    <button id="startExportBtn" class="btn">Export Data</button>
+    
+    <p class="info-text">Refresh the CoinGecko Portfolio or Transaction page prior to starting export. Make sure to load all table rows or most if more than 300.</p>
+  </div>
+  
+  <script src="modal.js"></script>
+  <script src="popup.js"></script>
+</body>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <p><strong>🔓 Free & Open Source Software</strong></p>
+  <p>No limits • No payments • Respects your privacy</p>
+  <p>&copy; 2025 CoinGecko Data Exporter. Released under open source license.</p>
+  <p>Disclaimer: Data is obtained from <a href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">CoinGecko</a>. This extension is not affiliated with or endorsed by CoinGecko.</p>
+</footer>
+</html>

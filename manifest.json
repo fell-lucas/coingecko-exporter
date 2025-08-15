@@ -1,0 +1,31 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+  "manifest_version": 3,
+  "name": "CoinGecko Data Exporter",
+  "version": "1.0.0",
+  "description": "Free and open source tool to export CoinGecko portfolios and transactions to CSV/JSON. No tracking, no limits, no payments.",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["https://www.coingecko.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-48.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-48.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.coingecko.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
