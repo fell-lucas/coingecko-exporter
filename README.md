@@ -1,4 +1,4 @@
-# # CoinGecko Data Exporter
+# CoinGecko Data Exporter
 
 A completely free and open source browser extension to export your CoinGecko portfolio and transaction data to CSV or JSON format.
 
